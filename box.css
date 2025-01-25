@@ -1,0 +1,36 @@
+body {
+    margin: 0px;
+}
+.main {
+    margin: 10px;
+    height: 300px;
+    width: 500px;
+    border: 1px solid #000000;
+}
+.container {
+    margin: 20px;
+}
+
+h1 {
+    margin: 0px 0px 20px 0px;
+}
+
+.input-form {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.release {
+    width: 100%;
+    padding: 5px;
+}
+.button {
+    padding: 5px;
+    display: flex;
+    float: right;
+    margin: 5px;
+    text-align: center;
+}
+.light {
+    color: #e1e1e2;
+}

@@ -1,0 +1,114 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -250px; /* Initially hidden */
+  transition: left 0.3s ease;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar.open {
+  left: 0; /* Visible when toggled */
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu-item {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #444;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+  background-color: #555;
+}
+
+.menu-item.active {
+  background-color: #1abc9c;
+  color: #fff;
+}
+
+/* Nested Submenu */
+.has-submenu {
+  position: relative;
+}
+
+.has-submenu .arrow {
+  position: absolute;
+  right: 10px;
+  font-size: 12px;
+  transition: transform 0.3s;
+}
+
+.has-submenu.open .arrow {
+  transform: rotate(90deg);
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 20px;
+  margin-top: 5px;
+  display: none; /* Hidden by default */
+}
+
+.has-submenu.open .submenu {
+  display: block; /* Show when open */
+}
+
+.submenu li {
+  padding: 8px 10px;
+  background-color: #555;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submenu li:hover {
+  background-color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+}

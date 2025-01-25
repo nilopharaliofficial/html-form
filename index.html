@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive HTML Template</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #ffffff;
+            --font-family: Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header .profile {
+            position: relative;
+            cursor: pointer;
+        }
+
+        header .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        header .profile .dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: #ffffff;
+            color: #333;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        header .profile:hover .dropdown {
+            display: block;
+        }
+
+        header .profile .dropdown a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        header .profile .dropdown a:hover {
+            background: #f4f4f4;
+        }
+
+        .side-menu {
+            width: 250px;
+            background: #333;
+            color: var(--secondary-color);
+            position: fixed;
+            top: 0;
+            left: -250px;
+            height: 100%;
+            overflow-y: auto;
+            transition: left 0.3s;
+            padding: 1rem 0;
+        }
+
+        .side-menu.active {
+            left: 0;
+        }
+
+        .side-menu ul {
+            list-style: none;
+        }
+
+        .side-menu ul li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .side-menu ul li.active {
+            background: var(--primary-color);
+        }
+
+        .side-menu ul li .submenu {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .side-menu ul li .submenu li {
+            padding: 5px 0;
+        }
+
+        .side-menu ul li .arrow {
+            float: right;
+            transition: transform 0.3s;
+        }
+
+        .side-menu ul li.open .submenu {
+            display: block;
+        }
+
+        .side-menu ul li.open .arrow {
+            transform: rotate(90deg);
+        }
+
+        .menu-toggle {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .container {
+            margin-left: 260px;
+            padding: 2rem;
+        }
+
+        footer {
+            background: #333;
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .side-menu {
+                left: -250px;
+            }
+
+            .side-menu.active {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">My Logo</div>
+        <div class="profile">
+            <img src="https://via.placeholder.com/40" alt="Profile">
+            <div class="dropdown">
+                <a href="#">Profile</a>
+                <a href="#">Settings</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+    </header>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li class="active">Home</li>
+            <li onclick="toggleSubMenu(this)">
+                About <span class="arrow">▶</span>
+                <ul class="submenu">
+                    <li>Team</li>
+                    <li>Careers</li>
+                </ul>
+            </li>
+            <li onclick="toggleSubMenu(this)">
+                Services <span class="arrow">▶</span>
+                <ul class="submenu">
+                    <li>Web Design</li>
+                    <li>SEO</li>
+                </ul>
+            </li>
+            <li>Contact</li>
+        </ul>
+    </div>
+    <div class="container">
+        <h1>Welcome to My Website</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor, ligula ut varius pharetra, lorem nunc gravida eros, at venenatis magna nulla non enim.</p>
+    </div>
+    <footer>
+        <p>&copy; 2025 My Responsive Website. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('sideMenu').classList.toggle('active');
+        }
+
+        function toggleSubMenu(element) {
+            element.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
